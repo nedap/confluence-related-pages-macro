@@ -12,8 +12,8 @@
         <url>https://nedap.com/</url>
     </organization>
 
-    <name>confluence-related-pages-macro</name>
-    <description>This is a plugin for Atlassian Confluence which creates a list of related pages based on the labels of the containing page.
+    <name>Related Pages</name>
+    <description>A plugin for Atlassian Confluence which creates a list of related pages based on the labels of the current page.
     </description>
     <packaging>atlassian-plugin</packaging>
 

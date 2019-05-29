@@ -74,25 +74,31 @@ public class RelatedPagesMacro implements Macro {
                         .append("</div>");
 
                 // Page labels
-                builder.append("<div class=\"label-details\" style=\"padding-left: 21px;\">")
-                        .append("<ul class=\"label-list\">");
-                for (Label label : content.getLabels()) {
-                    builder.append("<li class=\"aui-label\" data-label-id=\"")
-                            .append(label.getId()).append("\">")
-                            .append("<a class=\"aui-label-split-main\" href=\"")
-                            .append(label.getUrlPath()).append("\" rel=\"tag\">")
-                            .append(label.getName())
-                            .append("</a>")
-                            .append("</li>");
+                if(!map.containsKey("showLabels") || "true".equals(map.get("showLabels"))) {
+                    constructLabels(builder, content);
                 }
-                builder.append("</ul>");
-                builder.append("</div>");
                 builder.append("</li>");
             }
 
             builder.append("</ul>");
         }
         return builder.toString();
+    }
+
+    private void constructLabels(StringBuilder builder, ContentEntityObject content) {
+        builder.append("<div class=\"label-details\" style=\"padding-left: 21px;\">")
+                .append("<ul class=\"label-list\">");
+        for (Label label : content.getLabels()) {
+            builder.append("<li class=\"aui-label\" data-label-id=\"")
+                    .append(label.getId()).append("\">")
+                    .append("<a class=\"aui-label-split-main\" href=\"")
+                    .append(label.getUrlPath()).append("\" rel=\"tag\">")
+                    .append(label.getName())
+                    .append("</a>")
+                    .append("</li>");
+        }
+        builder.append("</ul>");
+        builder.append("</div>");
     }
 
     private Space getSpaceFor(ContentEntityObject content) {

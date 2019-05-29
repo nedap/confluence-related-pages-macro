@@ -7,9 +7,12 @@
         <param name="plugin-logo">images/pluginLogo.png</param>
     </plugin-info>
 
-    <xhtml-macro name="related-pages" class="com.nedap.healthcare.confluence.pages.RelatedPagesMacro" key="related-pages">
+    <xhtml-macro name="related-pages" class="com.nedap.healthcare.confluence.pages.RelatedPagesMacro" key="confluence-related-pages-macro">
+        <description key="related-pages.desc"/>
         <category name="navigation"/>
-        <parameters/>
+        <parameters>
+            <parameter name="showLabels" type="boolean" default="true" />
+        </parameters>
     </xhtml-macro>
 
     <!-- add our i18n resource -->
