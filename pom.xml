@@ -25,6 +25,33 @@
         <developerConnection>scm:git:git@github.com:nedap/confluence-related-pages-macro.git</developerConnection>
     </scm>
 
+    <distributionManagement>
+        <repository>
+            <uniqueVersion>false</uniqueVersion>
+            <id>nedap.jfrog.io</id>
+            <url>${jfrog.url}/libs-releases-local</url>
+        </repository>
+        <snapshotRepository>
+            <uniqueVersion>true</uniqueVersion>
+            <id>nedap-snapshots.jfrog.io</id>
+            <url>${jfrog.url}/libs-snapshots-local</url>
+        </snapshotRepository>
+    </distributionManagement>
+
+    <properties>
+        <jfrog.url>https://nedap.jfrog.io/nedap</jfrog.url>
+        <confluence.version>6.14.0</confluence.version>
+        <confluence.data.version>6.14.0</confluence.data.version>
+        <amps.version>8.0.0</amps.version>
+        <plugin.testrunner.version>2.0.1</plugin.testrunner.version>
+        <atlassian.spring.scanner.version>1.2.13</atlassian.spring.scanner.version>
+        <!-- This property ensures consistency between the key in atlassian-plugin.xml and the OSGi bundle's key. -->
+        <atlassian.plugin.key>${project.groupId}.${project.artifactId}</atlassian.plugin.key>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+    </properties>
+
     <dependencies>
         <dependency>
             <groupId>junit</groupId>
@@ -141,17 +168,14 @@
         </plugins>
     </build>
 
-    <properties>
-        <confluence.version>6.14.0</confluence.version>
-        <confluence.data.version>6.14.0</confluence.data.version>
-        <amps.version>8.0.0</amps.version>
-        <plugin.testrunner.version>2.0.1</plugin.testrunner.version>
-        <atlassian.spring.scanner.version>1.2.13</atlassian.spring.scanner.version>
-        <!-- This property ensures consistency between the key in atlassian-plugin.xml and the OSGi bundle's key. -->
-        <atlassian.plugin.key>${project.groupId}.${project.artifactId}</atlassian.plugin.key>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <maven.compiler.source>1.8</maven.compiler.source>
-        <maven.compiler.target>1.8</maven.compiler.target>
-    </properties>
+    <repositories>
+        <repository>
+            <id>nedap.jfrog.io</id>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+            <url>${jfrog.url}/libs-nedap-local</url>
+        </repository>
+    </repositories>
 
 </project>
