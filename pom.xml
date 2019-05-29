@@ -19,6 +19,12 @@
     </description>
     <packaging>atlassian-plugin</packaging>
 
+    <scm>
+        <connection>scm:git:https://github.com/nedap/confluence-related-pages-macro.git</connection>
+        <url>https://github.com/nedap/confluence-related-pages-macro</url>
+        <developerConnection>scm:git:git@github.com:nedap/confluence-related-pages-macro.git</developerConnection>
+    </scm>
+
     <dependencies>
         <dependency>
             <groupId>junit</groupId>
