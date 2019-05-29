@@ -9,6 +9,7 @@
 
     <xhtml-macro name="related-pages" class="com.nedap.healthcare.confluence.pages.RelatedPagesMacro" key="related-pages">
         <category name="navigation"/>
+        <parameters/>
     </xhtml-macro>
 
     <!-- add our i18n resource -->
